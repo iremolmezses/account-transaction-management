@@ -1,1 +1,1 @@
-cd account-transaction-management-frontend/ && npm run start
+cd account-transaction-management-frontend/ && npm install && npm run start
