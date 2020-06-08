@@ -1,0 +1,23 @@
+<div class="container">
+  <form class="form" [formGroup]="accountsForm" (ngSubmit)="onSubmit()">
+    <div>
+      <select formControlName="accountType" [(ngModel)]="accountType">
+        <option *ngFor="let accountType of accountTypes" value={{accountType.value}}>
+          {{accountType.value}}
+        </option>
+      </select>
+      <span *ngIf="submitted && f.accountType.errors" class="invalid-feedback">
+        <span *ngIf="f.accountType.errors.required">Account Type is required</span>
+      </span>
+    </div>
+
+    <div>
+      <input type="text" formControlName="balance" [(ngModel)]="balance"
+             [ngClass]="{ 'is-invalid': submitted && f.balance.errors }" placeholder="Initial Balance">
+      <span *ngIf="submitted && f.balance.errors" class="invalid-feedback">
+        <span *ngIf="f.balance.errors.pattern">Balance can only be numeric value, with up to two decimal places</span>
+      </span>
+    </div>
+    <input type="submit" class="btn" value="Add Account">
+  </form>
+</div>

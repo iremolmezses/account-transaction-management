@@ -1,0 +1,20 @@
+<div style="margin-left:20px; margin-right:20px;">
+  <h4 class="text">Add Customer</h4>
+  <app-add-customer (addCustomer)="saveCustomer($event)"></app-add-customer>
+  <br/>
+  <h4 class="text">Customers</h4>
+  <table class="table">
+    <tr>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>Social Security Number</th>
+    </tr>
+    <tr (click)="goToAccounts(customer)"
+        *ngFor="let customer of customers">
+      <td>{{ customer.firstName }}</td>
+      <td>{{ customer.lastName }}</td>
+      <td>{{ customer.socialSecurityNumber }}</td>
+      <button (click)="deleteCustomer(customer)" class="del">Delete</button>
+    </tr>
+  </table>
+</div>

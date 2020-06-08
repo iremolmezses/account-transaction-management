@@ -1,0 +1,17 @@
+<div style="margin-left:20px; margin-right:20px;">
+  <h4 class="text">Add Account</h4>
+  <app-add-account (addAccount)="saveAccount($event)"></app-add-account>
+  <br/>
+  <h4 class="text">Accounts of {{customerInfo}}</h4>
+  <table class="table">
+    <tr>
+      <th>Account Type</th>
+      <th>Balance</th>
+    </tr>
+    <tr (click)="goToTransactions(account.id)" *ngFor="let account of accounts">
+      <td>{{ account.accountType }}</td>
+      <td>{{ account.balance }}</td>
+      <button (click)="deleteAccount(account); $event.stopPropagation();" class="del">Delete</button>
+    </tr>
+  </table>
+</div>

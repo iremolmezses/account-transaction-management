@@ -1,0 +1,15 @@
+<div style="margin-left:20px; margin-right:20px;">
+  <h3 class="text">Transactions</h3>
+  <table class="table">
+    <tr>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Description</th>
+    </tr>
+    <tr *ngFor="let transaction of transactions">
+      <td>{{ transaction.date }}</td>
+      <td>{{ transaction.amount }}</td>
+      <td>{{ transaction.description }}</td>
+    </tr>
+  </table>
+</div>

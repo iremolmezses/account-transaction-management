@@ -1,0 +1,31 @@
+<div class="container">
+  <form class="form" [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+    <div>
+      <input type="text" formControlName="firstName" [(ngModel)]="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" placeholder="First Name">
+      <span *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+        <span *ngIf="f.firstName.errors.required">First Name is required</span>
+        <span *ngIf="f.firstName.errors.minlength">First Name should be at least 2 characters</span>
+        <span *ngIf="f.firstName.errors.maxlength">First Name should not exceed 35 characters</span>
+        <span *ngIf="f.firstName.errors.pattern">First Name should only contain characters</span>
+      </span>
+    </div>
+    <div>
+      <input type="text" formControlName="lastName" [(ngModel)]="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" placeholder="Last Name">
+      <span *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+        <span *ngIf="f.lastName.errors.required">Last Name is required</span>
+        <span *ngIf="f.lastName.errors.minlength">Last Name should be at least 2 characters</span>
+        <span *ngIf="f.lastName.errors.maxlength">Last Name should not exceed 35 characters</span>
+        <span *ngIf="f.lastName.errors.pattern">Last Name should only contain characters</span>
+      </span>
+    </div>
+    <div>
+      <input type="text" formControlName="socialSecurityNumber" [(ngModel)]="socialSecurityNumber" [ngClass]="{ 'is-invalid': submitted && f.socialSecurityNumber.errors }" placeholder="Social Security Number (BSN)">
+      <span *ngIf="submitted && f.socialSecurityNumber.errors" class="invalid-feedback">
+        <span *ngIf="f.socialSecurityNumber.errors.required">Social Security Number is required</span>
+        <span *ngIf="f.socialSecurityNumber.errors.pattern">Social Security Number should be 9 digits</span>
+      </span>
+    </div>
+
+    <input type="submit" class="btn" value="Add Customer">
+  </form>
+</div>
